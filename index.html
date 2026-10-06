@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>アイスクリーム評価実験</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- スタート画面 -->
+    <section id="startScreen" class="screen active">
+
+        <h1>🍦</h1>
+
+        <h2>アイスクリーム評価実験</h2>
+
+        <p class="description">
+
+            表示されるアイスを見て<br>
+            5秒以内に好き・嫌いを評価してください
+
+        </p>
+
+        <button id="startButton">
+
+            次へ
+
+        </button>
+
+    </section>
+
+
+
+    <!-- 説明画面 -->
+
+    <section id="instructionScreen" class="screen">
+
+        <div class="card">
+
+            <h2>操作説明</h2>
+
+            <ol class="instructionList">
+    <li>アイスの画像が表示されます</li>
+    <li>5秒以内に[好き][嫌い]を選んでください</li>
+    <li>スワイプして次に進んでください</li>
+</ol>
+
+        </div>
+
+        <button id="practiceButton">
+
+            練習を始める
+
+        </button>
+
+    </section>
+
+
+
+
+    <!-- 実験画面 -->
+
+    <section id="experimentScreen" class="screen">
+
+        <div class="top">
+
+            <span id="sessionName">
+
+                練習
+
+            </span>
+
+            <span id="progress">
+
+                1 / 3
+
+            </span>
+
+        </div>
+
+        <div id="timerCircle">
+
+            <span id="timer">
+
+                5
+
+            </span>
+
+        </div>
+
+        <div class="imageCard">
+
+            <img
+                id="iceImage"
+                src=""
+                alt="Ice">
+
+        </div>
+
+        <div class="buttons">
+
+            <button id="likeButton">
+
+                👍 好き
+
+            </button>
+
+            <button id="dislikeButton">
+
+                👎 嫌い
+
+            </button>
+
+        </div>
+
+        <div id="guide">
+
+            評価してください
+
+        </div>
+
+    </section>
+
+
+
+
+    <!-- メッセージ画面 -->
+
+    <section id="messageScreen" class="screen">
+
+        <h2 id="messageTitle"></h2>
+
+        <p id="messageBody"></p>
+
+        <button id="nextButton">
+
+            次へ
+
+        </button>
+
+    </section>
+
+
+
+
+    <!-- 終了画面 -->
+
+    <section id="finishScreen" class="screen">
+
+        <h2>
+
+            実験は終了です
+
+        </h2>
+
+        <p>
+
+            ご協力ありがとうございました！
+
+        </p>
+
+    </section>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,752 @@
+/* ===================================
+   全体設定
+=================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:
+    "Hiragino Sans",
+    "Yu Gothic",
+    sans-serif;
+
+    background:#FFF8ED;
+
+    color:#333;
+
+    display:flex;
+    justify-content:center;
+
+    min-height:100vh;
+}
+
+.app {
+    width: 100%;
+    max-width: 430px;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+body.experiment-mode .app {
+    min-height: 0;
+}
+
+
+/* ===================================
+   画面切替
+=================================== */
+
+.screen{
+
+    display:none;
+
+    animation:fade .35s;
+
+}
+
+.screen.active{
+
+    display:block;
+
+}
+
+@keyframes fade{
+
+    from{
+
+        opacity:0;
+        transform:translateY(15px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+}
+
+
+/* ===================================
+   スタート画面
+=================================== */
+
+h1{
+
+    font-size:70px;
+
+    text-align:center;
+
+    margin-top:45px;
+
+}
+
+h2{
+
+    text-align:center;
+
+    margin-top:15px;
+
+    margin-bottom:20px;
+
+}
+
+.description{
+
+    text-align:center;
+
+    line-height:1.9;
+
+    margin-bottom:35px;
+
+}
+
+
+/* ===================================
+   カード
+=================================== */
+
+.card{
+
+    background:white;
+
+    border-radius:22px;
+
+    padding:28px;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.08);
+
+    margin-top:50px;
+
+}
+
+.card ul{
+
+    margin-top:20px;
+
+    padding-left:25px;
+
+}
+
+.card li{
+
+    margin-bottom:15px;
+
+    line-height:1.8;
+
+}
+
+
+/* ===================================
+   ボタン
+=================================== */
+
+button{
+
+    width:100%;
+
+    height:58px;
+
+    border:none;
+
+    border-radius:16px;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+button:active{
+
+    transform:scale(.96);
+
+}
+
+#startButton,
+#practiceButton,
+#nextButton{
+
+    background:#79C8FF;
+
+    color:white;
+
+}
+
+#likeButton{
+
+    background:#72D67C;
+
+    color:white;
+
+}
+
+#dislikeButton{
+
+    background:#FF8B8B;
+
+    color:white;
+
+}
+
+button:hover{
+
+    filter:brightness(.97);
+
+}
+
+/* ===================================
+   実験画面
+=================================== */
+
+.top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:20px;
+
+}
+
+#sessionName{
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    color:#4A90E2;
+
+}
+
+#progress{
+
+    background:white;
+
+    padding:8px 16px;
+
+    border-radius:20px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+
+    font-weight:bold;
+
+}
+
+
+/* ===================================
+   タイマー
+=================================== */
+
+#timerCircle{
+
+    width:90px;
+
+    height:90px;
+
+    margin:20px auto;
+
+    border-radius:50%;
+
+    background:#79C8FF;
+
+    color:white;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:36px;
+
+    font-weight:bold;
+
+    box-shadow:0 10px 20px rgba(121,200,255,.35);
+
+}
+
+#timer{
+
+    user-select:none;
+
+}
+
+
+/* ===================================
+   画像カード
+=================================== */
+
+.imageCard {
+    background: white;
+    border-radius: 24px;
+    padding: 15px;
+    box-shadow: 0 12px 30px rgba(0,0,0,.08);
+    margin-top: 25px;
+
+    transition:
+        opacity 0.15s ease,
+        transform 0.35s ease;
+}
+
+#iceImage {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+
+/* ===================================
+   評価ボタン
+=================================== */
+
+.buttons{
+
+    display:flex;
+
+    gap:15px;
+
+    margin-top:30px;
+
+}
+
+.buttons button{
+
+    flex:1;
+
+}
+
+/* 押した後 */
+
+.selected{
+
+    transform:scale(.95);
+
+    filter:brightness(.8);
+
+}
+
+
+/* ===================================
+   ガイド
+=================================== */
+
+#guide{
+
+    text-align:center;
+
+    margin-top:25px;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    color:#4A90E2;
+
+    min-height:28px;
+
+}
+
+
+/* ===================================
+   メッセージ画面
+=================================== */
+
+#messageScreen{
+
+    padding-top:120px;
+
+    text-align:center;
+
+}
+
+#messageTitle{
+
+    font-size:36px;
+
+    margin-bottom:20px;
+
+}
+
+#messageBody{
+
+    font-size:20px;
+
+    line-height:1.8;
+
+    margin-bottom:40px;
+
+}
+
+
+/* ===================================
+   終了画面
+=================================== */
+
+#finishScreen{
+
+    padding-top:160px;
+
+    text-align:center;
+
+}
+
+#finishScreen h2{
+
+    font-size:34px;
+
+    color:#4A90E2;
+
+}
+
+#finishScreen p{
+
+    margin-top:25px;
+
+    font-size:22px;
+
+}
+
+
+/* ===================================
+   スワイプアニメーション
+=================================== */
+
+.swipeUp{
+
+    animation:swipeUp .35s forwards;
+
+}
+
+.swipeDown{
+
+    animation:swipeDown .35s forwards;
+
+}
+
+@keyframes swipeUp{
+
+    to{
+
+        transform:translateY(-120%);
+        opacity:0;
+
+    }
+
+}
+
+@keyframes swipeDown{
+
+    to{
+
+        transform:translateY(120%);
+        opacity:0;
+
+    }
+
+}
+
+
+/* ===================================
+   スマホ
+=================================== */
+
+@media(max-width:430px){
+
+    .app{
+
+        padding:16px;
+
+    }
+
+    h1{
+
+        font-size:60px;
+
+    }
+
+    h2{
+
+        font-size:28px;
+
+    }
+
+    button{
+
+        height:55px;
+
+        font-size:17px;
+
+    }
+
+    #timerCircle{
+
+        width:80px;
+        height:80px;
+
+        font-size:32px;
+
+    }
+
+}
+
+.imageCard.loading {
+    opacity: 0;
+}
+
+.imageCard {
+    transition:
+        opacity 0.15s ease,
+        transform 0.35s ease;
+}
+
+/* ===================================
+   実験中は1画面に固定
+=================================== */
+
+/* ===================================
+   実験画面をスマホの表示領域に完全固定
+=================================== */
+
+html.experiment-mode,
+body.experiment-mode {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+
+    overflow: hidden !important;
+    overscroll-behavior: none;
+
+    position: fixed;
+    inset: 0;
+}
+
+body.experiment-mode {
+    touch-action: manipulation;
+}
+
+body.experiment-mode .app {
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    max-width: 430px;
+
+    height: 100svh;
+    min-height: 0;
+
+    margin: 0 auto;
+    padding:
+        max(6px, env(safe-area-inset-top))
+        10px
+        max(6px, env(safe-area-inset-bottom));
+
+    overflow: hidden !important;
+}
+
+body.experiment-mode #experimentScreen.active {
+    position: absolute;
+    inset:
+        max(6px, env(safe-area-inset-top))
+        10px
+        max(6px, env(safe-area-inset-bottom));
+
+    display: grid;
+
+    grid-template-rows:
+        34px
+        48px
+        minmax(0, 1fr)
+        46px
+        26px;
+
+    gap: 5px;
+
+    width: auto;
+    height: auto;
+
+    margin: 0;
+    padding: 0;
+
+    overflow: hidden !important;
+    overscroll-behavior: none;
+    touch-action: none;
+}
+
+
+/* セッション名・進行状況 */
+
+body.experiment-mode .top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    height: 34px;
+    min-height: 0;
+
+    margin: 0;
+}
+
+body.experiment-mode #sessionName {
+    font-size: 16px;
+    line-height: 1;
+}
+
+body.experiment-mode #progress {
+    padding: 5px 10px;
+    font-size: 13px;
+    line-height: 1;
+}
+
+
+/* タイマー */
+
+body.experiment-mode #timerCircle {
+    width: 48px;
+    height: 48px;
+
+    margin: 0 auto;
+
+    font-size: 19px;
+    line-height: 1;
+}
+
+
+/* 画像 */
+
+body.experiment-mode .imageCard {
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    min-height: 0;
+
+    margin: 0;
+    padding: 5px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+}
+
+body.experiment-mode #iceImage {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+
+    object-fit: contain;
+    aspect-ratio: auto;
+}
+
+
+/* 評価ボタン */
+
+body.experiment-mode .buttons {
+    display: flex;
+    gap: 8px;
+
+    width: 100%;
+    height: 46px;
+
+    margin: 0;
+}
+
+body.experiment-mode .buttons button {
+    height: 46px;
+    min-height: 0;
+
+    padding: 0 5px;
+
+    font-size: 15px;
+}
+
+
+/* 操作案内 */
+
+body.experiment-mode #guide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 26px;
+    min-height: 0;
+
+    margin: 0;
+
+    font-size: 12px;
+    line-height: 1.2;
+    white-space: nowrap;
+}
+
+
+/* 画面が小さい端末 */
+
+@media (max-height: 650px) {
+    body.experiment-mode #experimentScreen.active {
+        grid-template-rows:
+            28px
+            40px
+            minmax(0, 1fr)
+            40px
+            22px;
+
+        gap: 3px;
+    }
+
+    body.experiment-mode .top {
+        height: 28px;
+    }
+
+    body.experiment-mode #timerCircle {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+
+    body.experiment-mode .buttons,
+    body.experiment-mode .buttons button {
+        height: 40px;
+    }
+
+    body.experiment-mode #guide {
+        height: 22px;
+        font-size: 11px;
+    }
+}
+
+body.experiment-mode .buttons {
+    position: relative;
+    z-index: 100;
+    pointer-events: auto;
+    touch-action: manipulation;
+}
+
+body.experiment-mode .buttons button {
+    position: relative;
+    z-index: 101;
+    pointer-events: auto;
+    touch-action: manipulation;
+}
+
+body.experiment-mode .imageCard {
+    touch-action: none;
+}
